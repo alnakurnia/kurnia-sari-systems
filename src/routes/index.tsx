@@ -103,7 +103,7 @@ function Index() {
                 Most productivity problems are actually <span className="text-primary">management system problems.</span>
               </h1>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                I help manufacturing companies improve quality, reduce waste, and build operational systems that scale — through QMS, continuous improvement, and data-driven decision making.
+                I help manufacturing companies improve quality, reduce waste, and build operational systems that scale — through practical problem solving without unnecessary complexity.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a href="#contact" className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground">
