@@ -115,7 +115,7 @@ function Index() {
               </div>
               <div className="mt-14 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-4">
                 {[
-                  ["12+", "Years in ops"],
+                  ["15+", "Years in ops"],
                   ["40+", "Engagements"],
                   ["ISO", "9001 / 14001"],
                   ["6σ", "Methodology"],
