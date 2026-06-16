@@ -228,7 +228,7 @@ function Index() {
               <div className="lg:col-span-5">
                 <Mark>— Services</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Three disciplines.<br />One operating system.
+                  My Focus Area
                 </h2>
               </div>
               <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
