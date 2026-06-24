@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroFactory from "@/assets/hero-factory.jpg";
 import portrait from "@/assets/portrait.jpg";
 import dashQuality from "@/assets/dashboard-quality.jpg";
 import dashProductivity from "@/assets/dashboard-productivity.jpg";
 import dashKpi from "@/assets/dashboard-kpi.jpg";
+import waQr from "@/assets/wa-qr.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,6 +63,65 @@ const testimonials = [
   { q: "Our supervisors lead structured problem-solving every shift. That habit alone is worth the engagement.", who: "Continuous Improvement Lead", org: "Industrial Equipment OEM" },
 ];
 
+const projects = [
+  {
+    title: "Quality Management System for Consumer Goods Expansion",
+    desc: "Built and implemented a Quality Management System for a multinational consumer goods company expanding into white market channels across Asia Pacific.",
+    deliverables: [
+      "Quality risk assessment for international sourcing and suppliers",
+      "Quality compliance management across 40 distributors in Asia, Australia and Pacific Islands",
+      "Customer quality feedback portal to accelerate issue resolution and improve customer satisfaction",
+    ],
+  },
+  {
+    title: "GMP & Product Launch Readiness",
+    desc: "Prepared a contract manufacturing facility for successful launch of a new home care liquid product with strong quality and compliance controls.",
+    deliverables: [
+      "Manufacturing readiness and GMP gap assessment",
+      "Cross-contamination prevention through segregation and changeover controls",
+      "Cleaning and sanitation validation program",
+      "Laboratory and testing capability enhancement for product quality assurance",
+    ],
+  },
+  {
+    title: "Operational Excellence for Rubber Logo Manufacturer",
+    desc: "Improved operational performance for a rubber logo manufacturer supplying global sportswear brands.",
+    deliverables: [
+      "Manufacturing SOP development and standardization",
+      "Workforce training system and competency framework",
+      "Automated KPI dashboard for real-time performance monitoring",
+    ],
+  },
+  {
+    title: "Business Analytics & Growth Strategy (PaDi UMKM)",
+    desc: "Partnered with Telkom Indonesia to improve marketplace performance and support SME growth on PaDi UMKM.",
+    deliverables: [
+      "Business performance dashboard using Google Analytics and marketplace data",
+      "Conversion rate improvement analysis",
+      "Buyer and seller segmentation strategy",
+    ],
+  },
+  {
+    title: "Global Quality Management System Optimization",
+    desc: "Streamlined Quality Management System documentation for a consumer goods manufacturer operating multiple production sites.",
+    deliverables: [
+      "QMS document restructuring with clear ownership and governance",
+      "Faster document review and approval workflows",
+      "Integration of quality and product safety documentation from 7 manufacturing sites into a unified global QMS",
+    ],
+  },
+  {
+    title: "Quality, Food Safety & Regulatory Compliance",
+    desc: "Strengthened compliance systems for a consumer goods manufacturer to maintain certifications and audit readiness.",
+    deliverables: [
+      "ISO 9001:2015 Quality Management System",
+      "FSSC 22000 v6.0 Food Safety Management System",
+      "Risk Management Program (PMR)",
+      "CPKB Compliance (Cosmetics GMP)",
+    ],
+  },
+];
+
 function Mark({ children }: { children: React.ReactNode }) {
   return <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">{children}</span>;
 }
@@ -71,7 +130,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
       {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur print:hidden">
         <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_auto] items-center gap-4 px-6 py-4 md:px-10">
           <a href="#top" className="flex min-w-0 items-center gap-3">
             <span className="grid h-8 w-8 shrink-0 place-items-center bg-foreground text-[11px] font-bold tracking-tight text-background">AK</span>
@@ -81,6 +140,7 @@ function Index() {
           <nav className="flex items-center gap-1 md:gap-6">
             <a href="#services" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Services</a>
             <a href="#process" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Process</a>
+            <a href="#experience" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Experience</a>
             <a href="#insights" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Insights</a>
             <a href="#about" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">About</a>
             <a href="#contact" className="ml-2 inline-flex shrink-0 items-center border border-foreground bg-foreground px-4 py-2 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:border-primary">
@@ -91,93 +151,6 @@ function Index() {
       </header>
 
       <main id="top">
-        {/* HERO */}
-        <section className="border-b border-border">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-10 bg-primary" />
-                <Mark>Quality · Productivity · Operational Excellence</Mark>
-              </div>
-              <h1 className="max-w-[16ch] text-4xl font-black leading-[1.02] tracking-[-0.02em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                Most productivity problems are actually <span className="text-primary">management system problems.</span>
-              </h1>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                I help manufacturing companies improve quality, reduce waste, and build operational systems that scale — through practical problem solving without unnecessary complexity.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a href="#contact" className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground">
-                  Book Strategy Call →
-                </a>
-                <a href="#case-studies" className="inline-flex items-center border border-foreground/20 px-6 py-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-foreground">
-                  View Case Studies
-                </a>
-              </div>
-              <div className="mt-14 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-4">
-                {[
-                  ["15+", "Years in ops"],
-                  ["40+", "Engagements"],
-                  ["ISO", "9001 / 14001"],
-                  ["6σ", "Methodology"],
-                ].map(([k, v]) => (
-                  <div key={k}>
-                    <div className="text-2xl font-bold tracking-tight text-foreground">{k}</div>
-                    <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">{v}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <img
-                  src={heroFactory}
-                  alt="Modern manufacturing production line with precision machinery"
-                  width={1600}
-                  height={1200}
-                  className="aspect-[4/5] w-full object-cover grayscale"
-                />
-                <div className="absolute inset-x-0 bottom-0 translate-y-6 px-4 sm:translate-y-8 sm:px-6">
-                  <div className="border border-border bg-background p-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] sm:p-6">
-                    <div className="mb-4 flex items-center justify-between">
-                      <Mark>Live Operations Snapshot</Mark>
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                      {[
-                        ["↓ 35%", "Defects"],
-                        ["↑ 22%", "Productivity"],
-                        ["↓ 18%", "Waste"],
-                        ["↑ 40%", "Process Visibility"],
-                      ].map(([k, v]) => (
-                        <div key={v} className="border-l-2 border-primary pl-3">
-                          <div className="text-lg font-bold tracking-tight text-foreground sm:text-xl">{k}</div>
-                          <div className="mt-0.5 text-[10px] uppercase tracking-widest text-muted-foreground">{v}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CREDIBILITY STRIP */}
-        <section className="border-b border-border bg-foreground text-background">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-6 px-6 py-8 md:grid-cols-[auto_1fr] md:gap-12 md:px-10">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] font-medium tracking-[0.2em] uppercase">
-              <span>Quality</span><span className="text-background/30">/</span>
-              <span>Productivity</span><span className="text-background/30">/</span>
-              <span>Continuous Improvement</span><span className="text-background/30">/</span>
-              <span>Data Analytics</span>
-            </div>
-            <p className="text-sm text-background/70 md:text-right">
-              Helping organizations turn operational data into measurable business results.
-            </p>
-          </div>
-        </section>
-
         {/* ABOUT */}
         <section id="about" className="border-b border-border">
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-12">
@@ -189,7 +162,7 @@ function Index() {
                 width={1024}
                 height={1280}
                 loading="lazy"
-                className="mt-6 aspect-[4/5] w-full object-cover grayscale"
+                className="mt-6 aspect-[4/5] w-full object-cover"
               />
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
@@ -201,7 +174,7 @@ function Index() {
                   I started on the production floor — auditing processes, chasing defects, and learning that operational problems almost always trace back to system design, not effort.
                 </p>
                 <p>
-                  Today I help manufacturing leaders use quality systems, continuous improvement, and data-driven decisions to produce measurable business outcomes. Quality, in my work, is not compliance theater. It is a growth engine.
+                  Today I help manufacturing leaders use quality systems, continuous improvement, and data-driven decisions to produce measurable business outcomes. Quality, in my work, is a growth engine.
                 </p>
               </div>
               <div className="mt-12 grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
@@ -461,6 +434,60 @@ function Index() {
           </div>
         </section>
 
+        {/* SELECTED PROJECT EXPERIENCE */}
+        <section id="experience" className="border-b border-border bg-secondary/40">
+          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Mark>— Portfolio</Mark>
+                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
+                  Selected Project Experience
+                </h2>
+              </div>
+              <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
+                A track record of building resilient quality management systems, scaling operational performance, and driving growth strategy.
+              </p>
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((p, i) => (
+                <article
+                  key={p.title}
+                  className="flex flex-col justify-between bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-secondary/10 col-span-1"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-sm font-semibold text-primary">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">
+                        Project Experience
+                      </span>
+                    </div>
+                    <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
+                      {p.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                      {p.desc}
+                    </p>
+                  </div>
+                  <div className="mt-8 border-t border-border pt-6">
+                    <Mark>Key Deliverables</Mark>
+                    <ul className="mt-4 space-y-3">
+                      {p.deliverables.map((d) => (
+                        <li key={d} className="flex gap-3 text-sm leading-snug text-foreground/80">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section id="contact" className="border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
@@ -473,21 +500,49 @@ function Index() {
                 <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
                   If defects, delays, waste, or inconsistent performance are slowing your business down, let's identify the system behind the problem — and design one that scales.
                 </p>
-                <div className="mt-10 flex flex-wrap items-center gap-3">
-                  <a href="mailto:hello@alnakurniasari.com" className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground">
+                <div className="mt-10 flex flex-wrap items-center gap-3 print:hidden">
+                  <a
+                    href="https://calendly.com/alna_kurnia/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground"
+                  >
                     Schedule a Strategy Call →
                   </a>
-                  <a href="#" className="inline-flex items-center border border-foreground/20 px-6 py-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-foreground">
+                  <button
+                    onClick={() => window.print()}
+                    className="inline-flex items-center border border-foreground/20 px-6 py-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-foreground cursor-pointer"
+                  >
                     Download Capability Profile
-                  </a>
+                  </button>
                 </div>
               </div>
               <aside className="lg:col-span-4">
                 <div className="border-l border-primary pl-6">
-                  <Mark>Direct</Mark>
-                  <div className="mt-3 space-y-3 text-sm">
-                    <a href="mailto:hello@alnakurniasari.com" className="block font-medium text-foreground hover:text-primary">hello@alnakurniasari.com</a>
-                    <a href="#" className="block text-foreground/70 hover:text-primary">LinkedIn / alnakurniasari</a>
+                  <div className="space-y-4 text-sm">
+                    <div>
+                      <Mark>Contact me:</Mark>
+                      <a href="mailto:alna_kurnia@yahoo.co.id" className="block font-medium text-foreground hover:text-primary mt-1.5">alna_kurnia@yahoo.co.id</a>
+                    </div>
+                    <div>
+                      <a href="tel:+628119226656" className="block text-foreground/70 hover:text-primary">Contact Number: +628119226656</a>
+                      <a
+                        href="https://wa.me/628119226656"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-28 mt-2 transition-transform duration-300 hover:scale-105"
+                        title="Scan or click to WhatsApp me"
+                      >
+                        <img
+                          src={waQr}
+                          alt="WhatsApp QR Code"
+                          width={112}
+                          height={112}
+                          className="aspect-square border border-border p-2 bg-white object-contain"
+                        />
+                      </a>
+                    </div>
+                    <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="block text-foreground/70 hover:text-primary">LinkedIn Profile</a>
                   </div>
                   <div className="mt-8 text-xs leading-relaxed text-foreground/60">
                     Typical engagements run 8–24 weeks. Strategy calls are 30 minutes and free of obligation.
@@ -500,7 +555,7 @@ function Index() {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-background">
+      <footer className="bg-background print:hidden">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 px-6 py-10 md:grid-cols-[1fr_auto] md:px-10">
           <div className="flex min-w-0 items-center gap-3">
             <span className="grid h-7 w-7 shrink-0 place-items-center bg-foreground text-[10px] font-bold text-background">AK</span>
@@ -508,8 +563,8 @@ function Index() {
             <span className="hidden truncate text-xs text-muted-foreground sm:inline">— Quality & Productivity Consultant</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/60">
-            <a href="#" className="hover:text-primary">LinkedIn</a>
-            <a href="mailto:hello@alnakurniasari.com" className="hover:text-primary">Email</a>
+            <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</a>
+            <a href="mailto:alna_kurnia@yahoo.co.id" className="hover:text-primary">Email</a>
             <a href="#contact" className="hover:text-primary">Contact</a>
             <span className="text-foreground/40">© {new Date().getFullYear()}</span>
           </div>
