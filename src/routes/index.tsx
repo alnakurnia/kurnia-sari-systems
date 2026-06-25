@@ -1,8 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import portrait from "@/assets/portrait.jpg";
-import dashQuality from "@/assets/dashboard-quality.jpg";
-import dashProductivity from "@/assets/dashboard-productivity.jpg";
-import dashKpi from "@/assets/dashboard-kpi.jpg";
 import waQr from "@/assets/wa-qr.png";
 
 export const Route = createFileRoute("/")({
