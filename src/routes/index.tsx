@@ -53,12 +53,6 @@ const insights = [
   { tag: "Culture", title: "Continuous Improvement Beyond Kaizen Events", read: "7 min read" },
 ];
 
-const testimonials = [
-  { q: "Defect rates dropped 32% in the first two quarters. More importantly, the team now owns the system — not the consultant.", who: "Operations Director", org: "Automotive Components Manufacturer" },
-  { q: "We finally have one source of truth. Leadership reviews are about decisions now, not arguing about whose number is right.", who: "Plant Manager", org: "Food & Beverage Processing" },
-  { q: "The audit went from a fire drill to a non-event. The system carries itself.", who: "Quality Manager", org: "Electronics Assembly" },
-  { q: "Our supervisors lead structured problem-solving every shift. That habit alone is worth the engagement.", who: "Continuous Improvement Lead", org: "Industrial Equipment OEM" },
-];
 
 const projects = [
   {
@@ -279,120 +273,8 @@ function Index() {
           </div>
         </section>
 
-        {/* BEFORE/AFTER */}
-        <section id="case-studies" className="border-b border-border bg-foreground text-background">
-          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <span className="font-mono text-xs tracking-widest text-background/50 uppercase">— Before & After</span>
-                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  From reactive firefighting to predictable performance.
-                </h2>
-              </div>
-            </div>
 
-            <div className="mt-14 grid grid-cols-1 gap-px bg-background/10 lg:grid-cols-2">
-              <div className="bg-foreground p-8 md:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="h-px w-8 bg-background/40" />
-                  <span className="font-mono text-[11px] tracking-widest text-background/50 uppercase">Before</span>
-                </div>
-                <ul className="mt-8 space-y-5">
-                  {["Reactive firefighting", "Inconsistent quality", "Data scattered everywhere", "Productivity bottlenecks"].map((b) => (
-                    <li key={b} className="border-b border-background/10 pb-5 text-xl font-medium text-background/55">{b}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-foreground p-8 md:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="h-px w-8 bg-primary" />
-                  <span className="font-mono text-[11px] tracking-widest text-primary uppercase">After</span>
-                </div>
-                <ul className="mt-8 space-y-5">
-                  {["Standardized systems", "Measurable KPIs", "Continuous improvement culture", "Predictable performance"].map((b) => (
-                    <li key={b} className="border-b border-background/10 pb-5 text-xl font-semibold text-background">{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
-            <div className="mt-14 grid grid-cols-2 gap-px bg-background/10 sm:grid-cols-4">
-              {[
-                ["−35%", "Defect rate"],
-                ["+22%", "Productivity"],
-                ["−18%", "Operational waste"],
-                ["+40%", "Process visibility"],
-              ].map(([k, v]) => (
-                <div key={v} className="bg-foreground p-6 md:p-8">
-                  <div className="text-3xl font-black tracking-tight text-primary md:text-4xl">{k}</div>
-                  <div className="mt-2 text-[11px] uppercase tracking-widest text-background/60">{v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* DASHBOARD SHOWCASE */}
-        <section className="border-b border-border">
-          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
-            <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <Mark>— Analytics in Practice</Mark>
-                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Dashboards leaders actually use.
-                </h2>
-              </div>
-              <p className="text-sm text-foreground/60 lg:col-span-4 lg:col-start-9">
-                Power BI environments built around the decisions you need to make — quality, productivity, and executive KPIs.
-              </p>
-            </div>
-
-            <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-              {[
-                { img: dashQuality, label: "Quality Management", note: "Defect rate, FPY, Pareto analysis" },
-                { img: dashProductivity, label: "Productivity", note: "OEE, throughput, downtime breakdown" },
-                { img: dashKpi, label: "Executive KPI Scorecard", note: "Targets vs actuals, trend monitoring" },
-              ].map((d) => (
-                <figure key={d.label} className="border border-border bg-background">
-                  <img src={d.img} alt={`${d.label} dashboard`} width={1280} height={896} loading="lazy" className="aspect-[4/3] w-full object-cover object-top" />
-                  <figcaption className="border-t border-border p-5">
-                    <div className="text-sm font-semibold tracking-tight">{d.label}</div>
-                    <div className="mt-1 text-xs text-foreground/60">{d.note}</div>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* TESTIMONIALS */}
-        <section className="border-b border-border bg-secondary/40">
-          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-6">
-                <Mark>— Outcomes in Their Words</Mark>
-                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Operators speaking about operators.
-                </h2>
-              </div>
-            </div>
-
-            <div className="mt-14 grid grid-cols-1 gap-px bg-border md:grid-cols-2">
-              {testimonials.map((t) => (
-                <blockquote key={t.who + t.org} className="flex flex-col justify-between bg-background p-8 md:p-10">
-                  <p className="text-lg font-medium leading-snug tracking-tight text-foreground md:text-xl">“{t.q}”</p>
-                  <footer className="mt-8 flex items-center gap-4 border-t border-border pt-5">
-                    <span className="h-px w-6 bg-primary" />
-                    <div className="min-w-0">
-                      <div className="truncate text-sm font-semibold text-foreground">{t.who}</div>
-                      <div className="truncate text-xs text-foreground/60">{t.org}</div>
-                    </div>
-                  </footer>
-                </blockquote>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* INSIGHTS */}
         <section id="insights" className="border-b border-border">
