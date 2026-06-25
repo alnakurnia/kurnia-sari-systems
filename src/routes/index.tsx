@@ -132,6 +132,7 @@ function Index() {
             <a href="#services" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Services</a>
             <a href="#process" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Process</a>
             <a href="#experience" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Experience</a>
+            <a href="#purpose" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Purpose</a>
             <a href="#insights" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Insights</a>
             <a href="#about" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">About</a>
             <a href="#contact" className="ml-2 inline-flex shrink-0 items-center border border-foreground bg-foreground px-4 py-2 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:border-primary">
@@ -237,6 +238,55 @@ function Index() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PURPOSE, VISION & MISSION */}
+        <section id="purpose" className="border-b border-border">
+          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Mark>— Why I Do This</Mark>
+                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
+                  My Purpose, Vision and Mission
+                </h2>
+              </div>
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 gap-px bg-border lg:grid-cols-3">
+              <article className="bg-background p-8 md:p-10">
+                <span className="font-mono text-xs text-primary">01</span>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">Purpose</h3>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                  To empower organizations to enhance their quality systems, improve operational productivity, and unlock the power of data to drive sustainable growth and customer trust.
+                </p>
+              </article>
+              <article className="bg-background p-8 md:p-10">
+                <span className="font-mono text-xs text-primary">02</span>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">Vision</h3>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                  To be a trusted partner for businesses seeking excellence in quality and productivity, recognized for transforming challenges into impactful results through innovative solutions.
+                </p>
+              </article>
+              <article className="bg-background p-8 md:p-10">
+                <span className="font-mono text-xs text-primary">03</span>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">Mission</h3>
+                <ul className="mt-4 space-y-3">
+                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>Help organizations embed quality into their culture and systems.</span>
+                  </li>
+                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>Drive continuous improvement that boosts efficiency and customer satisfaction.</span>
+                  </li>
+                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>Enable data-informed decisions for real-time and long-term performance enhancements.</span>
+                  </li>
+                </ul>
+              </article>
             </div>
           </div>
         </section>
