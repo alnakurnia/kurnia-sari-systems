@@ -183,9 +183,65 @@ function Index() {
               </div>
             </div>
           </div>
-        </section>
+      </section>
 
-        {/* SERVICES */}
+      {/* PROFESSIONAL EXPERIENCE */}
+      <section id="experience" className="border-b border-border bg-secondary/40">
+        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <Mark>— Professional Experience</Mark>
+              <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
+                15+ Years in Quality & Operational Excellence
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-foreground/70">
+                Quality leadership across multinational manufacturing organizations, from the production floor to regional and global systems.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-px bg-border lg:grid-cols-2">
+            <article className="bg-background p-8 md:p-10">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">2022 — 2024</span>
+                <span className="font-mono text-xs text-primary">01</span>
+              </div>
+              <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">Danone Specialized Nutrition</h3>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                Led Quality, Food Safety, Compliance, and Continuous Improvement initiatives for specialized nutrition manufacturing operations.
+              </p>
+            </article>
+            <article className="bg-background p-8 md:p-10">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">2008 — 2022</span>
+                <span className="font-mono text-xs text-primary">02</span>
+              </div>
+              <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">Unilever</h3>
+              <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                Held Quality leadership roles across Factory, Regional, and Global organizations supporting manufacturing, logistics, and market operations across Asia Pacific and international markets.
+              </p>
+            </article>
+          </div>
+
+          <div className="mt-16 border-t border-border pt-12">
+            <Mark>Career Highlights</Mark>
+            <div className="mt-8 grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
+              {[
+                ["8", "Factories managed, plus 20+ contract manufacturers"],
+                ["30%", "Reduction in supplier quality defects"],
+                ["58%", "Reduction in Cost of Poor Quality"],
+              ].map(([n, t]) => (
+                <div key={t} className="bg-background p-6 md:p-8">
+                  <div className="text-4xl font-black tracking-tight text-primary md:text-5xl">{n}</div>
+                  <div className="mt-3 text-sm leading-relaxed text-foreground/70">{t}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
         <section id="services" className="border-b border-border bg-secondary/40">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
