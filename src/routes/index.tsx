@@ -33,7 +33,7 @@ const services = [
     n: "03",
     title: "Data Analytics for Productivity",
     body: "Turn scattered operational data into the signals leaders act on.",
-    focus: ["Power BI dashboards", "KPI framework design", "Process performance tracking", "Predictive trend analysis", "Spreadsheet analytics"],
+    focus: ["Automated dashboards", "KPI framework design", "Process performance tracking", "Predictive trend analysis", "Spreadsheet analytics"],
     outcomes: ["Better, faster decisions", "Earlier issue detection", "Real-time operational visibility"],
   },
 ];
