@@ -444,17 +444,17 @@ function Index() {
               <div className="lg:col-span-7">
                 <Mark>— Insights</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Ideas for leaders who want better systems.
+                  Insights for Manufacturing Leaders
                 </h2>
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/70">
+                  Practical ideas to improve productivity, reduce defects, and build better factory systems.
+                </p>
               </div>
-              <a href="#" className="text-sm font-medium tracking-tight text-primary hover:underline lg:col-span-4 lg:col-start-9 lg:text-right">
-                All writing →
-              </a>
             </div>
 
             <div className="mt-14 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
               {insights.map((a, i) => (
-                <a key={a.title} href="#" className="group flex flex-col justify-between bg-background p-6 transition-colors hover:bg-secondary/60 md:p-8">
+                <Link key={a.title} to="/insights/$slug" params={{ slug: a.slug }} className="group flex flex-col justify-between bg-background p-6 transition-colors hover:bg-secondary/60 md:p-8">
                   <div>
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-[11px] tracking-widest text-primary uppercase">{a.tag}</span>
@@ -466,9 +466,9 @@ function Index() {
                   </div>
                   <div className="mt-10 flex items-center justify-between border-t border-border pt-4">
                     <span className="text-xs text-foreground/60">{a.read}</span>
-                    <span className="text-sm text-foreground/40 transition-transform group-hover:translate-x-1">→</span>
+                    <span className="text-sm text-primary transition-transform group-hover:translate-x-1">Read →</span>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
