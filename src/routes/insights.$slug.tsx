@@ -65,7 +65,7 @@ const articles: Article[] = [
       "It is often a profitability problem disguised as a production issue.",
     ],
     sections: [
-      { type: "p", text: "Estimated Reading Time: 4 minutes" },
+      
       { type: "h", text: "Every Defect Costs More Than You Think" },
       { type: "p", text: "A rejected product is easy to see." },
       { type: "p", text: "The real cost is everything that happens because of that defect." },
@@ -128,7 +128,7 @@ const articles: Article[] = [
       { type: "h", text: "Ask Yourself" },
       { type: "p", text: "If the same quality problems appear every month, the issue is probably not your people." },
       { type: "p", text: "It is your operating system." },
-      { type: "p", text: "If you want to identify where poor quality is quietly reducing productivity and profit, let's discuss your factory's biggest operational challenges and uncover the hidden opportunities for improvement." },
+      
     ],
   },
   {
