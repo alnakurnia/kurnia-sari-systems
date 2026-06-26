@@ -289,14 +289,14 @@ function Index() {
           </div>
         </section>
 
-        {/* SELECTED PROJECT EXPERIENCE */}
+        {/* REPRESENTATIVE PROJECTS */}
         <section id="portfolio" className="border-b border-border bg-secondary/40">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-5">
                 <Mark>— Portfolio</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Selected Project Experience
+                  Representative Projects
                 </h2>
               </div>
               <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
@@ -316,7 +316,7 @@ function Index() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">
-                        Project Experience
+                        Representative Project
                       </span>
                     </div>
                     <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
