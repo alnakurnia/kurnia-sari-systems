@@ -146,7 +146,7 @@ function Index() {
       <main id="top">
         {/* ABOUT */}
         <section id="about" className="border-b border-border print:break-inside-avoid">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 print:grid-cols-12 print:gap-6 print:py-6 md:px-10 md:py-28 lg:grid-cols-12">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 print:grid-cols-12 print:gap-8 print:py-6 md:px-10 md:py-28 lg:grid-cols-12">
             <div className="print:col-span-4 lg:col-span-4">
               <Mark>— About</Mark>
               <img
@@ -154,8 +154,7 @@ function Index() {
                 alt="Portrait of Alna Kurnia Sari"
                 width={1024}
                 height={1280}
-                loading="lazy"
-                className="mt-6 aspect-[4/5] w-full object-cover print:mt-3 print:max-w-[180px]"
+                className="mt-6 block aspect-[4/5] w-full object-cover print:mt-3 print:w-[180px] print:max-w-none"
               />
             </div>
             <div className="print:col-span-8 print:col-start-5 lg:col-span-7 lg:col-start-6">
