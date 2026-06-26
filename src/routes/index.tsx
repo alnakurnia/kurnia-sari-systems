@@ -47,10 +47,10 @@ const process = [
 ];
 
 const insights = [
-  { tag: "Operations", title: "Why Most Productivity Initiatives Fail", read: "6 min read" },
-  { tag: "Quality", title: "The Hidden Cost of Poor Quality", read: "8 min read" },
-  { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "5 min read" },
-  { tag: "Culture", title: "Continuous Improvement Beyond Kaizen Events", read: "7 min read" },
+  { tag: "Operations", title: "The Reason Most Productivity Improvement Projects Fail", read: "5 min read", slug: "why-productivity-projects-fail" },
+  { tag: "Quality", title: "The Hidden Cost of Poor Quality", read: "4 min read", slug: "hidden-cost-of-poor-quality" },
+  { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "4 min read", slug: "kpi-dashboards-that-drive-action" },
+  { tag: "Culture", title: "The Reason Your Factory Keeps Solving the Same Problem", read: "5 min read", slug: "factory-keeps-solving-same-problem" },
 ];
 
 
