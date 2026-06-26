@@ -146,8 +146,8 @@ function Index() {
       <main id="top">
         {/* ABOUT */}
         <section id="about" className="border-b border-border">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-12">
-            <div className="lg:col-span-4">
+          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 print:grid-cols-12 print:gap-6 print:py-6 md:px-10 md:py-28 lg:grid-cols-12">
+            <div className="print:col-span-4 lg:col-span-4">
               <Mark>— About</Mark>
               <img
                 src={portrait}
@@ -155,10 +155,10 @@ function Index() {
                 width={1024}
                 height={1280}
                 loading="lazy"
-                className="mt-6 aspect-[4/5] w-full object-cover"
+                className="mt-6 aspect-[4/5] w-full object-cover print:mt-3 print:max-w-[180px]"
               />
             </div>
-            <div className="lg:col-span-7 lg:col-start-6">
+            <div className="print:col-span-8 print:col-start-5 lg:col-span-7 lg:col-start-6">
               <h2 className="text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
                 From factory floor to strategic improvement partner.
               </h2>
