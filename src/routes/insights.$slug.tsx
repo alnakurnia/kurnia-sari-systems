@@ -356,7 +356,7 @@ function ArticlePage() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-24">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-8">
-                <Mark>— {article.tag} · {article.read}</Mark>
+                <Mark>— {article.read}</Mark>
                 <h1 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
                   {article.title}
                 </h1>

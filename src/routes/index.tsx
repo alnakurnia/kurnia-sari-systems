@@ -47,10 +47,10 @@ const process = [
 ];
 
 const insights = [
-  { tag: "Operations", title: "How Continuous Improvement Becomes Daily Work", read: "5 min read", slug: "why-productivity-projects-fail" },
   { tag: "Quality", title: "The Hidden Cost of Poor Quality: Why Defects Hurt Profit More Than You Think", read: "4 min read", slug: "hidden-cost-of-poor-quality" },
-  { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "4 min read", slug: "kpi-dashboards-that-drive-action" },
   { tag: "Culture", title: "The Reason Your Factory Keeps Solving the Same Problem", read: "5 min read", slug: "factory-keeps-solving-same-problem" },
+  { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "4 min read", slug: "kpi-dashboards-that-drive-action" },
+  { tag: "Operations", title: "How Continuous Improvement Becomes Daily Work", read: "5 min read", slug: "why-productivity-projects-fail" },
 ];
 
 
@@ -455,8 +455,7 @@ function Index() {
               {insights.map((a, i) => (
                 <Link key={a.title} to="/insights/$slug" params={{ slug: a.slug }} className="group flex flex-col justify-between bg-background p-6 transition-colors hover:bg-secondary/60 md:p-8">
                   <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[11px] tracking-widest text-primary uppercase">{a.tag}</span>
+                    <div className="flex items-center justify-end">
                       <span className="font-mono text-[11px] text-foreground/40">{String(i + 1).padStart(2, "0")}</span>
                     </div>
                     <h3 className="mt-8 text-lg font-bold leading-snug tracking-tight transition-colors group-hover:text-primary md:text-xl">
