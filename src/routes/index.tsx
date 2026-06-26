@@ -130,14 +130,12 @@ function Index() {
           </a>
           <nav className="flex items-center gap-1 md:gap-6">
             <a href="#services" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Services</a>
-            <a href="#process" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Process</a>
-            <a href="#case-study" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Case Study</a>
-            <a href="#experience" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Experience</a>
-            <a href="#purpose" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Purpose</a>
+            <a href="#case-study" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Case Studies</a>
+            <a href="#approach" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">How I Work</a>
             <a href="#insights" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Insights</a>
             <a href="#about" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">About</a>
             <a href="#contact" className="ml-2 inline-flex shrink-0 items-center border border-foreground bg-foreground px-4 py-2 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:border-primary">
-              Book Strategy Call →
+              Contact →
             </a>
           </nav>
         </div>
@@ -291,6 +289,60 @@ function Index() {
           </div>
         </section>
 
+        {/* SELECTED PROJECT EXPERIENCE */}
+        <section id="portfolio" className="border-b border-border bg-secondary/40">
+          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Mark>— Portfolio</Mark>
+                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
+                  Selected Project Experience
+                </h2>
+              </div>
+              <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
+                A track record of building resilient quality management systems, scaling operational performance, and driving growth strategy.
+              </p>
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((p, i) => (
+                <article
+                  key={p.title}
+                  className="flex flex-col justify-between bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-secondary/10 col-span-1"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-sm font-semibold text-primary">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">
+                        Project Experience
+                      </span>
+                    </div>
+                    <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
+                      {p.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                      {p.desc}
+                    </p>
+                  </div>
+                  <div className="mt-8 border-t border-border pt-6">
+                    <Mark>Key Deliverables</Mark>
+                    <ul className="mt-4 space-y-3">
+                      {p.deliverables.map((d) => (
+                        <li key={d} className="flex gap-3 text-sm leading-snug text-foreground/80">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SERVICES */}
         <section id="services" className="border-b border-border bg-secondary/40">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
@@ -343,14 +395,14 @@ function Index() {
           </div>
         </section>
 
-        {/* PROCESS */}
-        <section id="process" className="border-b border-border">
+        {/* MY APPROACH */}
+        <section id="approach" className="border-b border-border">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <Mark>— Method</Mark>
+                <Mark>— My Approach</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  How we improve operations.
+                  Improving Factory Performance
                 </h2>
               </div>
               <p className="text-sm text-foreground/60 lg:col-span-4 lg:col-start-9">
@@ -467,60 +519,6 @@ function Index() {
                     <span className="text-sm text-primary transition-transform group-hover:translate-x-1">Read →</span>
                   </div>
                 </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SELECTED PROJECT EXPERIENCE */}
-        <section id="portfolio" className="border-b border-border bg-secondary/40">
-          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-              <div className="lg:col-span-5">
-                <Mark>— Portfolio</Mark>
-                <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Selected Project Experience
-                </h2>
-              </div>
-              <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
-                A track record of building resilient quality management systems, scaling operational performance, and driving growth strategy.
-              </p>
-            </div>
-
-            <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p, i) => (
-                <article
-                  key={p.title}
-                  className="flex flex-col justify-between bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-secondary/10 col-span-1"
-                >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-sm font-semibold text-primary">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">
-                        Project Experience
-                      </span>
-                    </div>
-                    <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
-                      {p.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                      {p.desc}
-                    </p>
-                  </div>
-                  <div className="mt-8 border-t border-border pt-6">
-                    <Mark>Key Deliverables</Mark>
-                    <ul className="mt-4 space-y-3">
-                      {p.deliverables.map((d) => (
-                        <li key={d} className="flex gap-3 text-sm leading-snug text-foreground/80">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
               ))}
             </div>
           </div>
