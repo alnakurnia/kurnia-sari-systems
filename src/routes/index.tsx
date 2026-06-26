@@ -48,7 +48,7 @@ const process = [
 
 const insights = [
   { tag: "Operations", title: "The Reason Most Productivity Improvement Projects Fail", read: "5 min read", slug: "why-productivity-projects-fail" },
-  { tag: "Quality", title: "The Hidden Cost of Poor Quality", read: "4 min read", slug: "hidden-cost-of-poor-quality" },
+  { tag: "Quality", title: "The Hidden Cost of Poor Quality: Why Defects Hurt Profit More Than You Think", read: "4 min read", slug: "hidden-cost-of-poor-quality" },
   { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "4 min read", slug: "kpi-dashboards-that-drive-action" },
   { tag: "Culture", title: "The Reason Your Factory Keeps Solving the Same Problem", read: "5 min read", slug: "factory-keeps-solving-same-problem" },
 ];
