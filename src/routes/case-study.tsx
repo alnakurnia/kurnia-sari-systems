@@ -1,12 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useLang, LanguageToggle } from "@/i18n/LanguageProvider";
+import { translations } from "@/i18n/strings";
 
 export const Route = createFileRoute("/case-study")({
   head: () => ({
     meta: [
-      { title: "Case Study — Manufacturing SME Operational Visibility | Alna Kurnia Sari" },
-      { name: "description", content: "How a manufacturing SME improved operational visibility and productivity with a simple digital reporting system — a practical case study." },
-      { property: "og:title", content: "Case Study — Manufacturing SME Operational Visibility" },
-      { property: "og:description", content: "Structured production data became the foundation for faster decisions, continuous improvement, and operational cost reduction." },
+      { title: translations.en.meta.caseTitle },
+      { name: "description", content: translations.en.meta.caseDescription },
+      { property: "og:title", content: translations.en.meta.caseTitle },
+      { property: "og:description", content: translations.en.meta.caseDescription },
     ],
   }),
   component: CaseStudyPage,
@@ -17,6 +19,8 @@ function Mark({ children }: { children: React.ReactNode }) {
 }
 
 function CaseStudyPage() {
+  const { t } = useLang();
+  const c = t.caseStudy;
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
       {/* NAV */}
@@ -25,14 +29,15 @@ function CaseStudyPage() {
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <span className="grid h-8 w-8 shrink-0 place-items-center bg-foreground text-[11px] font-bold tracking-tight text-background">AK</span>
             <span className="truncate text-sm font-semibold tracking-tight">Alna Kurnia Sari</span>
-            <span className="hidden truncate text-xs text-muted-foreground sm:inline">— Quality & Productivity Consultant</span>
+            <span className="hidden truncate text-xs text-muted-foreground sm:inline">{t.nav.role}</span>
           </Link>
-          <nav className="flex items-center gap-1 md:gap-6">
+          <nav className="flex items-center gap-2 md:gap-4">
+            <LanguageToggle />
             <Link
               to="/"
               className="inline-flex items-center gap-2 border border-border bg-background px-4 py-2 text-xs font-medium tracking-tight text-foreground transition-colors hover:bg-secondary"
             >
-              ← Back to Home
+              {t.nav.backHome}
             </Link>
           </nav>
         </div>
@@ -44,24 +49,19 @@ function CaseStudyPage() {
             {/* Header */}
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <Mark>— Case Study</Mark>
+                <Mark>{c.mark}</Mark>
                 <h1 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  How a Manufacturing SME Improved Operational Visibility and Productivity with a Simple Digital Reporting System
+                  {c.title}
                 </h1>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/70">
-                  A practical example of how structured production data became the foundation for faster decisions, continuous improvement, and operational cost reduction.
+                  {c.intro}
                 </p>
               </div>
               <aside className="lg:col-span-4 lg:col-start-9">
                 <div className="border border-border bg-background p-6">
-                  <Mark>Project Summary</Mark>
+                  <Mark>{c.summaryMark}</Mark>
                   <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 text-sm">
-                    {[
-                      ["Industry", "Rubber Patch & PVC Logo"],
-                      ["Production Lines", "24"],
-                      ["Implementation", "1 Month"],
-                      ["Approach", "Hybrid Consulting"],
-                    ].map(([k, v]) => (
+                    {c.summary.map(([k, v]) => (
                       <div key={k}>
                         <dt className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">{k}</dt>
                         <dd className="mt-1 font-semibold tracking-tight text-foreground">{v}</dd>
@@ -75,22 +75,17 @@ function CaseStudyPage() {
             {/* Challenge */}
             <div className="mt-20 grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-4">
-                <Mark>01 — Challenge</Mark>
+                <Mark>{c.challengeMark}</Mark>
                 <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight md:text-3xl">
-                  The factory had data. But it was not driving improvement.
+                  {c.challengeTitle}
                 </h2>
                 <p className="mt-5 text-sm leading-relaxed text-foreground/70">
-                  Daily targets, supervisor reports, and reject records existed — but most information stayed manual and never became insight.
+                  {c.challengeBody}
                 </p>
               </div>
               <div className="lg:col-span-8">
                 <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
-                  {[
-                    ["Manual Reporting", "Production and reject information recorded manually on paper."],
-                    ["Low Visibility", "Performance differences between lines were hard to see."],
-                    ["Unstable Productivity", "Output fluctuations were difficult to explain or address."],
-                    ["Reactive Decisions", "Issues were caught after the fact, not prevented."],
-                  ].map(([k, v]) => (
+                  {c.challengeCards.map(([k, v]) => (
                     <div key={k} className="bg-background p-6">
                       <div className="text-sm font-semibold tracking-tight text-foreground">{k}</div>
                       <div className="mt-2 text-sm leading-relaxed text-foreground/65">{v}</div>
@@ -98,7 +93,7 @@ function CaseStudyPage() {
                   ))}
                 </div>
                 <blockquote className="mt-8 border-l-2 border-primary bg-background p-6 text-lg font-medium leading-snug tracking-tight text-foreground">
-                  "The problem was not lack of data. The problem was lack of visibility."
+                  {c.challengeQuote}
                 </blockquote>
               </div>
             </div>
@@ -106,37 +101,37 @@ function CaseStudyPage() {
             {/* Root Cause + Solution */}
             <div className="mt-20 grid grid-cols-1 gap-px bg-border lg:grid-cols-2">
               <div className="bg-background p-8 md:p-10">
-                <Mark>02 — Root Cause</Mark>
-                <h3 className="mt-4 text-xl font-bold tracking-tight md:text-2xl">What we found on the floor</h3>
+                <Mark>{c.rootMark}</Mark>
+                <h3 className="mt-4 text-xl font-bold tracking-tight md:text-2xl">{c.rootTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  Production data was used only for manual order tracking. Reject data was on paper, never consolidated. Management could not see output by product, reject trends by line, hidden losses, or underperforming lines.
+                  {c.rootBody}
                 </p>
                 <ol className="mt-6 space-y-2 font-mono text-xs tracking-widest text-foreground/70 uppercase">
-                  <li>Data exists</li>
+                  {c.rootFlow.map((step, i) => (
+                    <>
+                      <li key={step}>{step}</li>
+                      {i < c.rootFlow.length - 1 && <li key={step + "-arrow"} className="text-foreground/40">↓</li>}
+                    </>
+                  ))}
                   <li className="text-foreground/40">↓</li>
-                  <li>Data not analyzed</li>
-                  <li className="text-foreground/40">↓</li>
-                  <li>Limited visibility</li>
-                  <li className="text-foreground/40">↓</li>
-                  <li className="text-primary">Reactive improvement</li>
+                  <li className="text-primary">{c.rootFlowAccent}</li>
                 </ol>
               </div>
               <div className="bg-background p-8 md:p-10">
-                <Mark>03 — What We Built</Mark>
-                <h3 className="mt-4 text-xl font-bold tracking-tight md:text-2xl">A simple digital reporting system</h3>
+                <Mark>{c.builtMark}</Mark>
+                <h3 className="mt-4 text-xl font-bold tracking-tight md:text-2xl">{c.builtTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  No expensive software. We used tools the business already had — designed around the way operators actually work.
+                  {c.builtBody}
                 </p>
                 <ol className="mt-6 space-y-2 font-mono text-xs tracking-widest text-foreground/70 uppercase">
-                  <li>Operator</li>
+                  {c.builtFlow.map((step, i) => (
+                    <>
+                      <li key={step}>{step}</li>
+                      {i < c.builtFlow.length - 1 && <li key={step + "-arrow"} className="text-foreground/40">↓</li>}
+                    </>
+                  ))}
                   <li className="text-foreground/40">↓</li>
-                  <li>Google Form</li>
-                  <li className="text-foreground/40">↓</li>
-                  <li>Spreadsheet Dashboard</li>
-                  <li className="text-foreground/40">↓</li>
-                  <li>Management Review</li>
-                  <li className="text-foreground/40">↓</li>
-                  <li className="text-primary">Improvement Actions</li>
+                  <li className="text-primary">{c.builtFlowAccent}</li>
                 </ol>
               </div>
             </div>
@@ -145,20 +140,14 @@ function CaseStudyPage() {
             <div className="mt-20">
               <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
                 <div className="lg:col-span-7">
-                  <Mark>04 — Results</Mark>
+                  <Mark>{c.resultsMark}</Mark>
                   <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight md:text-3xl">
-                    What changed
+                    {c.resultsTitle}
                   </h3>
                 </div>
               </div>
               <div className="mt-10 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
-                {[
-                  ["Operational Visibility", "Performance visible across every production line."],
-                  ["Data-Driven Decisions", "Discussions shifted from assumptions to facts."],
-                  ["Faster Problem ID", "Performance gaps surfaced earlier, not after the month."],
-                  ["Better Prioritization", "Resources focused on the highest-impact opportunities."],
-                  ["CI Foundation", "Structured reporting enabled systematic CI reviews."],
-                ].map(([k, v], i) => (
+                {c.resultsCards.map(([k, v], i) => (
                   <div key={k} className="bg-background p-6">
                     <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
                     <div className="mt-4 text-sm font-semibold tracking-tight text-foreground">{k}</div>
@@ -167,40 +156,37 @@ function CaseStudyPage() {
                 ))}
               </div>
               <blockquote className="mt-8 border-l-2 border-primary bg-background p-6 text-lg font-medium leading-snug tracking-tight text-foreground">
-                "For the first time, management could clearly see which production lines were underperforming — and where the improvement opportunities were."
+                {c.resultsQuote}
               </blockquote>
             </div>
 
             {/* Key Learning + Self-check */}
             <div className="mt-20 grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-6">
-                <Mark>05 — Key Learning</Mark>
+                <Mark>{c.learningMark}</Mark>
                 <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight md:text-3xl">
-                  Most factories don't need more data. They need visible data.
+                  {c.learningTitle}
                 </h3>
                 <p className="mt-5 text-sm leading-relaxed text-foreground/70">
-                  Many manufacturing SMEs already have enough data to improve productivity. The real challenge is making that data visible, structured, and connected to decision-making. When operational data becomes visible, continuous improvement becomes easier, faster, and more systematic.
+                  {c.learningBody}
                 </p>
               </div>
               <div className="lg:col-span-6">
                 <div className="border border-border bg-background p-8">
-                  <Mark>Could this be happening in your factory?</Mark>
+                  <Mark>{c.selfCheckMark}</Mark>
                   <ul className="mt-5 space-y-3">
-                    {[
-                      "Production reports are collected but rarely analyzed.",
-                      "Reject records are stored but not trended over time.",
-                      "Improvement discussions rely on opinions, not data.",
-                      "It's hard to identify which lines are underperforming.",
-                    ].map((q) => (
+                    {c.selfCheckItems.map((q) => (
                       <li key={q} className="flex gap-3 text-sm leading-relaxed text-foreground/80">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                         <span>{q}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-6 text-sm leading-relaxed text-foreground/70">
-                    If you answered <span className="font-semibold text-foreground">yes</span> to any of these, there are likely hidden productivity and quality opportunities inside your operations.
-                  </p>
+                  {(() => {
+                    const yesWord = t.lang === undefined ? "yes" : (translations[ /* fallback */ "en"].caseStudy.selfCheckClose("yes").yes);
+                    return null;
+                  })()}
+                  <SelfCheckClose />
                 </div>
               </div>
             </div>
@@ -210,10 +196,10 @@ function CaseStudyPage() {
               <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
                 <div className="lg:col-span-8">
                   <h3 className="text-2xl font-black leading-tight tracking-[-0.02em] md:text-3xl">
-                    Looking for better productivity and operational visibility?
+                    {c.ctaTitle}
                   </h3>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/70">
-                    Many factories already have improvement opportunities hidden inside daily operations. Often the fastest gains come from making existing data visible and actionable. Let's discuss your productivity, quality, or operational challenges — and explore practical next steps for your factory.
+                    {c.ctaBody}
                   </p>
                 </div>
                 <div className="lg:col-span-4 lg:text-right">
@@ -223,7 +209,7 @@ function CaseStudyPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground"
                   >
-                    Book a Strategy Call →
+                    {c.ctaButton}
                   </a>
                 </div>
               </div>
@@ -235,12 +221,25 @@ function CaseStudyPage() {
                 to="/"
                 className="inline-flex items-center gap-2 border border-border bg-background px-5 py-3 text-sm font-medium tracking-tight text-foreground transition-colors hover:bg-secondary"
               >
-                ← Back to Home
+                {t.nav.backHome}
               </Link>
             </div>
           </div>
         </section>
       </main>
     </div>
+  );
+}
+
+function SelfCheckClose() {
+  const { t, lang } = useLang();
+  const yes = lang === "id" ? "ya" : "yes";
+  const { before, yes: yesWord, after } = t.caseStudy.selfCheckClose(yes);
+  return (
+    <p className="mt-6 text-sm leading-relaxed text-foreground/70">
+      {before}
+      <span className="font-semibold text-foreground">{yesWord}</span>
+      {after}
+    </p>
   );
 }
