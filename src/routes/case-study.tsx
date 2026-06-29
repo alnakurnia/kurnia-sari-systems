@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLang, LanguageToggle } from "@/i18n/LanguageProvider";
 import { translations } from "@/i18n/strings";
@@ -108,10 +109,10 @@ function CaseStudyPage() {
                 </p>
                 <ol className="mt-6 space-y-2 font-mono text-xs tracking-widest text-foreground/70 uppercase">
                   {c.rootFlow.map((step, i) => (
-                    <>
-                      <li key={step}>{step}</li>
-                      {i < c.rootFlow.length - 1 && <li key={step + "-arrow"} className="text-foreground/40">↓</li>}
-                    </>
+                    <Fragment key={step}>
+                      <li>{step}</li>
+                      {i < c.rootFlow.length - 1 && <li className="text-foreground/40">↓</li>}
+                    </Fragment>
                   ))}
                   <li className="text-foreground/40">↓</li>
                   <li className="text-primary">{c.rootFlowAccent}</li>
@@ -125,10 +126,10 @@ function CaseStudyPage() {
                 </p>
                 <ol className="mt-6 space-y-2 font-mono text-xs tracking-widest text-foreground/70 uppercase">
                   {c.builtFlow.map((step, i) => (
-                    <>
-                      <li key={step}>{step}</li>
-                      {i < c.builtFlow.length - 1 && <li key={step + "-arrow"} className="text-foreground/40">↓</li>}
-                    </>
+                    <Fragment key={step}>
+                      <li>{step}</li>
+                      {i < c.builtFlow.length - 1 && <li className="text-foreground/40">↓</li>}
+                    </Fragment>
                   ))}
                   <li className="text-foreground/40">↓</li>
                   <li className="text-primary">{c.builtFlowAccent}</li>
