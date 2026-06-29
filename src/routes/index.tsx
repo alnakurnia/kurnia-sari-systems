@@ -1,123 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import portrait from "@/assets/portrait.jpg";
 import waQr from "@/assets/wa-qr.png";
+import { useLang, LanguageToggle } from "@/i18n/LanguageProvider";
+import { translations } from "@/i18n/strings";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alna Kurnia Sari — Quality & Productivity Consultant" },
-      { name: "description", content: "I help manufacturing companies improve quality, reduce waste, and build operational systems that scale — QMS, continuous improvement, and data analytics." },
-      { property: "og:title", content: "Alna Kurnia Sari — Quality & Productivity Consultant" },
-      { property: "og:description", content: "Most productivity problems are management system problems. I redesign the system so quality, productivity, and profitability improve together." },
+      { title: translations.en.meta.siteTitle },
+      { name: "description", content: translations.en.meta.siteDescription },
+      { property: "og:title", content: translations.en.meta.siteTitle },
+      { property: "og:description", content: translations.en.meta.siteDescription },
     ],
   }),
   component: Index,
 });
-
-const services = [
-  {
-    n: "01",
-    title: "Quality Management Systems",
-    body: "Build the governance backbone that makes quality predictable — not heroic.",
-    focus: ["ISO readiness & certification", "SOP development", "Audit preparation", "Governance & risk frameworks", "Non-conformance control"],
-    outcomes: ["Fewer non-conformities", "Improved process reliability", "Stronger customer trust"],
-  },
-  {
-    n: "02",
-    title: "Continuous Improvement & Operational Excellence",
-    body: "Install the daily habits and tools that compound into operational excellence.",
-    focus: ["Lean principles & 5S", "TPM & PDCA cycles", "Root cause analysis", "Kaizen & value stream mapping", "Problem-solving capability"],
-    outcomes: ["Higher productivity", "Lower waste", "Stronger problem-solving culture"],
-  },
-  {
-    n: "03",
-    title: "Data Analytics for Productivity",
-    body: "Turn scattered operational data into the signals leaders act on.",
-    focus: ["Automated dashboards", "KPI framework design", "Process performance tracking", "Predictive trend analysis", "Spreadsheet analytics"],
-    outcomes: ["Better, faster decisions", "Earlier issue detection", "Real-time operational visibility"],
-  },
-];
-
-const process = [
-  { n: "01", title: "Assess", items: ["Audit current systems", "Review operational data", "Identify bottlenecks"] },
-  { n: "02", title: "Diagnose", items: ["Root cause analysis", "Waste & flow mapping", "Process review"] },
-  { n: "03", title: "Design", items: ["Improvement roadmap", "KPI framework", "System redesign"] },
-  { n: "04", title: "Implement", items: ["Team training", "SOP rollout", "Dashboard deployment"] },
-  { n: "05", title: "Sustain", items: ["Continuous monitoring", "Performance reviews", "Improvement culture"] },
-];
-
-const insights = [
-  { tag: "Quality", title: "The Hidden Cost of Poor Quality: Why Defects Hurt Profit More Than You Think", read: "4 min read", slug: "hidden-cost-of-poor-quality" },
-  { tag: "Culture", title: "The Reason Your Factory Keeps Solving the Same Problem", read: "5 min read", slug: "factory-keeps-solving-same-problem" },
-  { tag: "Analytics", title: "KPI Dashboards That Actually Drive Action", read: "4 min read", slug: "kpi-dashboards-that-drive-action" },
-  { tag: "Operations", title: "How Continuous Improvement Becomes Daily Work", read: "5 min read", slug: "why-productivity-projects-fail" },
-];
-
-
-const projects = [
-  {
-    title: "Quality Management System for Consumer Goods Expansion",
-    desc: "Built and implemented a Quality Management System for a multinational consumer goods company expanding into white market channels across Asia Pacific.",
-    deliverables: [
-      "Quality risk assessment for international sourcing and suppliers",
-      "Quality compliance management across 40 distributors in Asia, Australia and Pacific Islands",
-      "Customer quality feedback portal to accelerate issue resolution and improve customer satisfaction",
-    ],
-  },
-  {
-    title: "GMP & Product Launch Readiness",
-    desc: "Prepared a contract manufacturing facility for successful launch of a new home care liquid product with strong quality and compliance controls.",
-    deliverables: [
-      "Manufacturing readiness and GMP gap assessment",
-      "Cross-contamination prevention through segregation and changeover controls",
-      "Cleaning and sanitation validation program",
-      "Laboratory and testing capability enhancement for product quality assurance",
-    ],
-  },
-  {
-    title: "Operational Excellence for Rubber Logo Manufacturer",
-    desc: "Improved operational performance for a rubber logo manufacturer supplying global sportswear brands.",
-    deliverables: [
-      "Manufacturing SOP development and standardization",
-      "Workforce training system and competency framework",
-      "Automated KPI dashboard for real-time performance monitoring",
-    ],
-  },
-  {
-    title: "Business Analytics & Growth Strategy (PaDi UMKM)",
-    desc: "Partnered with Telkom Indonesia to improve marketplace performance and support SME growth on PaDi UMKM.",
-    deliverables: [
-      "Business performance dashboard using Google Analytics and marketplace data",
-      "Conversion rate improvement analysis",
-      "Buyer and seller segmentation strategy",
-    ],
-  },
-  {
-    title: "Global Quality Management System Optimization",
-    desc: "Streamlined Quality Management System documentation for a consumer goods manufacturer operating multiple production sites.",
-    deliverables: [
-      "QMS document restructuring with clear ownership and governance",
-      "Faster document review and approval workflows",
-      "Integration of quality and product safety documentation from 7 manufacturing sites into a unified global QMS",
-    ],
-  },
-  {
-    title: "Quality, Food Safety & Regulatory Compliance",
-    desc: "Strengthened compliance systems for a consumer goods manufacturer to maintain certifications and audit readiness.",
-    deliverables: [
-      "ISO 9001:2015 Quality Management System",
-      "FSSC 22000 v6.0 Food Safety Management System",
-      "Risk Management Program (PMR)",
-      "CPKB Compliance (Cosmetics GMP)",
-    ],
-  },
-];
 
 function Mark({ children }: { children: React.ReactNode }) {
   return <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">{children}</span>;
 }
 
 function Index() {
+  const { t } = useLang();
+  const services = t.services.items;
+  const process = t.approach.steps;
+  const insights = t.insights.cards;
+  const projects = t.portfolio.projects;
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
       {/* NAV */}
@@ -126,16 +34,17 @@ function Index() {
           <a href="#top" className="flex min-w-0 items-center gap-3">
             <span className="grid h-8 w-8 shrink-0 place-items-center bg-foreground text-[11px] font-bold tracking-tight text-background">AK</span>
             <span className="truncate text-sm font-semibold tracking-tight">Alna Kurnia Sari</span>
-            <span className="hidden truncate text-xs text-muted-foreground sm:inline">— Quality & Productivity Consultant</span>
+            <span className="hidden truncate text-xs text-muted-foreground sm:inline">{t.nav.role}</span>
           </a>
           <nav className="flex items-center gap-1 md:gap-6">
-            <a href="#services" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Services</a>
-            <a href="#case-study" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Case Studies</a>
-            <a href="#approach" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">How I Work</a>
-            <a href="#insights" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">Insights</a>
-            <a href="#about" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">About</a>
+            <a href="#services" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">{t.nav.services}</a>
+            <a href="#case-study" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">{t.nav.caseStudies}</a>
+            <a href="#approach" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">{t.nav.howIWork}</a>
+            <a href="#insights" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">{t.nav.insights}</a>
+            <a href="#about" className="hidden text-sm text-foreground/70 transition-colors hover:text-foreground md:inline">{t.nav.about}</a>
+            <LanguageToggle className="ml-2" />
             <a href="#contact" className="ml-2 inline-flex shrink-0 items-center border border-foreground bg-foreground px-4 py-2 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:border-primary">
-              Contact →
+              {t.nav.contact}
             </a>
           </nav>
         </div>
@@ -146,10 +55,10 @@ function Index() {
         <section id="about" className="border-b border-border print:break-inside-avoid">
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 py-20 print:grid-cols-12 print:gap-8 print:py-6 md:px-10 md:py-28 lg:grid-cols-12">
             <div className="print:col-span-4 lg:col-span-4">
-              <Mark>— About</Mark>
+              <Mark>{t.about.mark}</Mark>
               <img
                 src={portrait}
-                alt="Portrait of Alna Kurnia Sari"
+                alt={t.about.portraitAlt}
                 width={1024}
                 height={1280}
                 className="mt-6 block aspect-[4/5] w-full object-cover print:mt-3 print:w-[180px] print:max-w-none"
@@ -157,23 +66,14 @@ function Index() {
             </div>
             <div className="print:col-span-8 print:col-start-5 lg:col-span-7 lg:col-start-6">
               <h2 className="text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                From factory floor to strategic improvement partner.
+                {t.about.headline}
               </h2>
               <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/75">
-                <p>
-                  I started on the production floor — auditing processes, chasing defects, and learning that operational problems almost always trace back to system design, not effort.
-                </p>
-                <p>
-                  Today I help manufacturing leaders use quality systems, continuous improvement, and data-driven decisions to produce measurable business outcomes. Quality, in my work, is a growth engine.
-                </p>
+                <p>{t.about.p1}</p>
+                <p>{t.about.p2}</p>
               </div>
               <div className="mt-12 grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
-                {[
-                  ["Quality builds trust.", "Reliable processes create reliable revenue."],
-                  ["Data drives decisions.", "Opinions defer to what the numbers show."],
-                  ["Improvement is a journey.", "Sustained gains beat one-time wins."],
-                  ["Prevention beats firefighting.", "Design out the problem, don't manage it."],
-                ].map(([k, v]) => (
+                {t.about.principles.map(([k, v]) => (
                   <div key={k} className="bg-background p-6">
                     <div className="text-sm font-semibold tracking-tight text-foreground">{k}</div>
                     <div className="mt-1.5 text-sm leading-relaxed text-foreground/60">{v}</div>
@@ -189,12 +89,12 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <Mark>— Professional Experience</Mark>
+                <Mark>{t.experience.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  15+ Years in Quality & Operational Excellence
+                  {t.experience.headline}
                 </h2>
                 <p className="mt-6 text-base leading-relaxed text-foreground/70">
-                  Quality leadership across multinational manufacturing organizations, from the production floor to regional and global systems.
+                  {t.experience.intro}
                 </p>
               </div>
             </div>
@@ -202,37 +102,33 @@ function Index() {
             <div className="mt-16 grid grid-cols-1 gap-px bg-border lg:grid-cols-2">
               <article className="bg-background p-8 md:p-10">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">2022 — 2024</span>
+                  <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">{t.experience.danoneRange}</span>
                   <span className="font-mono text-xs text-primary">01</span>
                 </div>
-                <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">Danone Specialized Nutrition</h3>
+                <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">{t.experience.danoneTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  Led Quality, Food Safety, Compliance, and Continuous Improvement initiatives for specialized nutrition manufacturing operations.
+                  {t.experience.danoneBody}
                 </p>
               </article>
               <article className="bg-background p-8 md:p-10">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">2008 — 2022</span>
+                  <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">{t.experience.unileverRange}</span>
                   <span className="font-mono text-xs text-primary">02</span>
                 </div>
-                <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">Unilever</h3>
+                <h3 className="mt-6 text-2xl font-bold leading-tight tracking-tight">{t.experience.unileverTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  Held Quality leadership roles across Factory, Regional, and Global organizations supporting manufacturing, logistics, and market operations across Asia Pacific and international markets.
+                  {t.experience.unileverBody}
                 </p>
               </article>
             </div>
 
             <div className="mt-16 border-t border-border pt-12">
-              <Mark>Career Highlights</Mark>
+              <Mark>{t.experience.highlightsMark}</Mark>
               <div className="mt-8 grid grid-cols-1 gap-px bg-border sm:grid-cols-3">
-                {[
-                  ["8", "Factories managed, plus 20+ contract manufacturers"],
-                  ["30%", "Reduction in supplier quality defects"],
-                  ["58%", "Reduction in Cost of Poor Quality"],
-                ].map(([n, t]) => (
-                  <div key={t} className="bg-background p-6 md:p-8">
+                {t.experience.highlights.map(([n, label]) => (
+                  <div key={label} className="bg-background p-6 md:p-8">
                     <div className="text-4xl font-black tracking-tight text-primary md:text-5xl">{n}</div>
-                    <div className="mt-3 text-sm leading-relaxed text-foreground/70">{t}</div>
+                    <div className="mt-3 text-sm leading-relaxed text-foreground/70">{label}</div>
                   </div>
                 ))}
               </div>
@@ -245,9 +141,9 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <Mark>— Why I Do This</Mark>
+                <Mark>{t.purpose.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  My Purpose, Vision and Mission
+                  {t.purpose.headline}
                 </h2>
               </div>
             </div>
@@ -255,34 +151,28 @@ function Index() {
             <div className="mt-16 grid grid-cols-1 gap-px bg-border lg:grid-cols-3">
               <article className="bg-background p-8 md:p-10">
                 <span className="font-mono text-xs text-primary">01</span>
-                <h3 className="mt-6 text-xl font-bold tracking-tight">Purpose</h3>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{t.purpose.purposeTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  To empower organizations to enhance their quality systems, improve operational productivity, and unlock the power of data to drive sustainable growth and customer trust.
+                  {t.purpose.purposeBody}
                 </p>
               </article>
               <article className="bg-background p-8 md:p-10">
                 <span className="font-mono text-xs text-primary">02</span>
-                <h3 className="mt-6 text-xl font-bold tracking-tight">Vision</h3>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{t.purpose.visionTitle}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  To be a trusted partner for businesses seeking excellence in quality and productivity, recognized for transforming challenges into impactful results through innovative solutions.
+                  {t.purpose.visionBody}
                 </p>
               </article>
               <article className="bg-background p-8 md:p-10">
                 <span className="font-mono text-xs text-primary">03</span>
-                <h3 className="mt-6 text-xl font-bold tracking-tight">Mission</h3>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{t.purpose.missionTitle}</h3>
                 <ul className="mt-4 space-y-3">
-                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>Help organizations embed quality into their culture and systems.</span>
-                  </li>
-                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>Drive continuous improvement that boosts efficiency and customer satisfaction.</span>
-                  </li>
-                  <li className="flex gap-3 text-sm leading-relaxed text-foreground/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>Enable data-informed decisions for real-time and long-term performance enhancements.</span>
-                  </li>
+                  {t.purpose.missionItems.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/70">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </article>
             </div>
@@ -294,13 +184,13 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <Mark>— Portfolio</Mark>
+                <Mark>{t.portfolio.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Representative Projects
+                  {t.portfolio.headline}
                 </h2>
               </div>
               <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
-                A track record of building resilient quality management systems, scaling operational performance, and driving growth strategy.
+                {t.portfolio.intro}
               </p>
             </div>
 
@@ -316,7 +206,7 @@ function Index() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">
-                        Representative Project
+                        {t.portfolio.cardLabel}
                       </span>
                     </div>
                     <h3 className="mt-6 text-xl font-bold leading-tight tracking-tight text-foreground md:text-2xl">
@@ -327,7 +217,7 @@ function Index() {
                     </p>
                   </div>
                   <div className="mt-8 border-t border-border pt-6">
-                    <Mark>Key Deliverables</Mark>
+                    <Mark>{t.portfolio.deliverablesMark}</Mark>
                     <ul className="mt-4 space-y-3">
                       {p.deliverables.map((d) => (
                         <li key={d} className="flex gap-3 text-sm leading-snug text-foreground/80">
@@ -348,13 +238,13 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
               <div className="lg:col-span-5">
-                <Mark>— Services</Mark>
+                <Mark>{t.services.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  My Focus Area
+                  {t.services.headline}
                 </h2>
               </div>
               <p className="self-end text-base leading-relaxed text-foreground/70 lg:col-span-5 lg:col-start-8">
-                Each engagement combines governance, improvement, and analytics — because durable performance requires all three working as one system, not three disconnected initiatives.
+                {t.services.intro}
               </p>
             </div>
 
@@ -369,7 +259,7 @@ function Index() {
                   <p className="mt-4 text-sm leading-relaxed text-foreground/70">{s.body}</p>
 
                   <div className="mt-8">
-                    <Mark>Focus</Mark>
+                    <Mark>{t.services.focusMark}</Mark>
                     <ul className="mt-3 space-y-2">
                       {s.focus.map((f) => (
                         <li key={f} className="flex gap-3 text-sm text-foreground/80">
@@ -380,7 +270,7 @@ function Index() {
                   </div>
 
                   <div className="mt-8 border-t border-border pt-6">
-                    <Mark>Outcomes</Mark>
+                    <Mark>{t.services.outcomesMark}</Mark>
                     <ul className="mt-3 space-y-2">
                       {s.outcomes.map((o) => (
                         <li key={o} className="flex gap-3 text-sm font-medium text-foreground">
@@ -400,13 +290,13 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <Mark>— My Approach</Mark>
+                <Mark>{t.approach.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Improving Factory Performance
+                  {t.approach.headline}
                 </h2>
               </div>
               <p className="text-sm text-foreground/60 lg:col-span-4 lg:col-start-9">
-                A five-stage method that moves you from diagnosis to a self-sustaining improvement culture.
+                {t.approach.intro}
               </p>
             </div>
 
@@ -436,13 +326,13 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <Mark>— Case Study</Mark>
+                <Mark>{t.caseStudyPreview.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Proof, not promises.
+                  {t.caseStudyPreview.headline}
                 </h2>
               </div>
               <p className="text-sm text-foreground/60 lg:col-span-4 lg:col-start-9">
-                A worked example showing how visibility — not more data — unlocks productivity.
+                {t.caseStudyPreview.intro}
               </p>
             </div>
 
@@ -453,29 +343,24 @@ function Index() {
               >
                 <div className="bg-background p-8 md:p-10 lg:col-span-8">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] tracking-widest text-primary uppercase">Manufacturing SME</span>
+                    <span className="font-mono text-[11px] tracking-widest text-primary uppercase">{t.caseStudyPreview.industryTag}</span>
                     <span className="font-mono text-[11px] text-foreground/40">01</span>
                   </div>
                   <h3 className="mt-8 text-2xl font-bold leading-snug tracking-tight transition-colors group-hover:text-primary md:text-3xl">
-                    How a Manufacturing SME Improved Operational Visibility and Productivity with a Simple Digital Reporting System
+                    {t.caseStudyPreview.title}
                   </h3>
                   <p className="mt-5 max-w-2xl text-sm leading-relaxed text-foreground/70">
-                    A practical example of how structured production data became the foundation for faster decisions, continuous improvement, and operational cost reduction.
+                    {t.caseStudyPreview.body}
                   </p>
                   <div className="mt-10 flex items-center gap-3 border-t border-border pt-5">
-                    <span className="text-sm font-medium tracking-tight text-primary">Read the full case study</span>
+                    <span className="text-sm font-medium tracking-tight text-primary">{t.caseStudyPreview.cta}</span>
                     <span className="text-sm text-foreground/40 transition-transform group-hover:translate-x-1">→</span>
                   </div>
                 </div>
                 <div className="bg-background p-8 md:p-10 lg:col-span-4">
-                  <Mark>Project Summary</Mark>
+                  <Mark>{t.caseStudyPreview.summaryMark}</Mark>
                   <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 text-sm">
-                    {[
-                      ["Industry", "Rubber & PVC"],
-                      ["Production Lines", "24"],
-                      ["Implementation", "1 Month"],
-                      ["Approach", "Hybrid"],
-                    ].map(([k, v]) => (
+                    {t.caseStudyPreview.summary.map(([k, v]) => (
                       <div key={k}>
                         <dt className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">{k}</dt>
                         <dd className="mt-1 font-semibold tracking-tight text-foreground">{v}</dd>
@@ -493,12 +378,12 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <Mark>— Insights</Mark>
+                <Mark>{t.insights.mark}</Mark>
                 <h2 className="mt-4 text-3xl font-black leading-[1.05] tracking-[-0.02em] sm:text-4xl md:text-5xl">
-                  Insights for Manufacturing Leaders
+                  {t.insights.headline}
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/70">
-                  Practical ideas to improve productivity, reduce defects, and build better factory systems.
+                  {t.insights.intro}
                 </p>
               </div>
             </div>
@@ -516,7 +401,7 @@ function Index() {
                   </div>
                   <div className="mt-10 flex items-center justify-between border-t border-border pt-4">
                     <span className="text-xs text-foreground/60">{a.read}</span>
-                    <span className="text-sm text-primary transition-transform group-hover:translate-x-1">Read →</span>
+                    <span className="text-sm text-primary transition-transform group-hover:translate-x-1">{t.insights.read}</span>
                   </div>
                 </Link>
               ))}
@@ -529,12 +414,12 @@ function Index() {
           <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
               <div className="lg:col-span-8">
-                <Mark>— Let's Talk</Mark>
+                <Mark>{t.cta.mark}</Mark>
                 <h2 className="mt-6 text-4xl font-black leading-[1.02] tracking-[-0.025em] sm:text-5xl md:text-6xl lg:text-7xl">
-                  Better systems <br /><span className="text-primary">create better results.</span>
+                  {t.cta.headlineA} <br /><span className="text-primary">{t.cta.headlineB}</span>
                 </h2>
                 <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                  If defects, delays, waste, or inconsistent performance are slowing your business down, let's identify the system behind the problem — and design one that scales.
+                  {t.cta.body}
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-3 print:hidden">
                   <a
@@ -543,13 +428,13 @@ function Index() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-primary px-6 py-3.5 text-sm font-medium tracking-tight text-primary-foreground transition-colors hover:bg-foreground"
                   >
-                    Schedule a Strategy Call →
+                    {t.cta.schedule}
                   </a>
                   <button
                     onClick={() => window.print()}
                     className="inline-flex items-center border border-foreground/20 px-6 py-3.5 text-sm font-medium tracking-tight text-foreground transition-colors hover:border-foreground cursor-pointer"
                   >
-                    Download Capability Profile
+                    {t.cta.download}
                   </button>
                 </div>
               </div>
@@ -557,17 +442,17 @@ function Index() {
                 <div className="border-l border-primary pl-6">
                   <div className="space-y-4 text-sm">
                     <div>
-                      <Mark>Contact me:</Mark>
+                      <Mark>{t.cta.contactMark}</Mark>
                       <a href="mailto:alna_kurnia@yahoo.co.id" className="block font-medium text-foreground hover:text-primary mt-1.5">alna_kurnia@yahoo.co.id</a>
                     </div>
                     <div>
-                      <a href="tel:+628119226656" className="block text-foreground/70 hover:text-primary">Contact Number: +628119226656</a>
+                      <a href="tel:+628119226656" className="block text-foreground/70 hover:text-primary">{t.cta.phoneLabel} +628119226656</a>
                       <a
                         href="https://wa.me/628119226656"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-28 mt-2 transition-transform duration-300 hover:scale-105"
-                        title="Scan or click to WhatsApp me"
+                        title={t.cta.qrTitle}
                       >
                         <img
                           src={waQr}
@@ -578,10 +463,10 @@ function Index() {
                         />
                       </a>
                     </div>
-                    <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="block text-foreground/70 hover:text-primary">LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="block text-foreground/70 hover:text-primary">{t.cta.linkedIn}</a>
                   </div>
                   <div className="mt-8 text-xs leading-relaxed text-foreground/60">
-                    Typical engagements run 8–24 weeks. Strategy calls are 30 minutes and free of obligation.
+                    {t.cta.fineprint}
                   </div>
                 </div>
               </aside>
@@ -596,12 +481,12 @@ function Index() {
           <div className="flex min-w-0 items-center gap-3">
             <span className="grid h-7 w-7 shrink-0 place-items-center bg-foreground text-[10px] font-bold text-background">AK</span>
             <span className="truncate text-sm font-semibold">Alna Kurnia Sari</span>
-            <span className="hidden truncate text-xs text-muted-foreground sm:inline">— Quality & Productivity Consultant</span>
+            <span className="hidden truncate text-xs text-muted-foreground sm:inline">{t.nav.role}</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/60">
-            <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</a>
-            <a href="mailto:alna_kurnia@yahoo.co.id" className="hover:text-primary">Email</a>
-            <a href="#contact" className="hover:text-primary">Contact</a>
+            <a href="https://www.linkedin.com/in/alna-kurnia-sari/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">{t.footer.linkedIn}</a>
+            <a href="mailto:alna_kurnia@yahoo.co.id" className="hover:text-primary">{t.footer.email}</a>
+            <a href="#contact" className="hover:text-primary">{t.footer.contact}</a>
             <span className="text-foreground/40">© {new Date().getFullYear()}</span>
           </div>
         </div>
