@@ -1,21 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useLang, LanguageToggle } from "@/i18n/LanguageProvider";
+import { translations, type ArticleSection } from "@/i18n/strings";
 
-type Section =
-  | { type: "p"; text: string }
-  | { type: "h"; text: string }
-  | { type: "list"; items: string[] }
-  | { type: "quote"; text: string };
-
-type Article = {
-  slug: string;
-  tag: string;
-  read: string;
-  title: string;
-  hero: string[];
-  sections: Section[];
-};
-
-const articles: Article[] = [
+// Slugs are language-neutral; we look up the article by slug per current language at render time.
+const SLUGS = translations.en.articles.map((a) => a.slug);
   {
     slug: "why-productivity-projects-fail",
     tag: "Operations",
