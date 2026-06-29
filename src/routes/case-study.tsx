@@ -182,10 +182,6 @@ function CaseStudyPage() {
                       </li>
                     ))}
                   </ul>
-                  {(() => {
-                    const yesWord = t.lang === undefined ? "yes" : (translations[ /* fallback */ "en"].caseStudy.selfCheckClose("yes").yes);
-                    return null;
-                  })()}
                   <SelfCheckClose />
                 </div>
               </div>
